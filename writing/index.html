@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Writing and thesis notes from Yeonguk Kim on Work OS design, AI state continuity, agent governance, and evidence-gated operations." />
+  <meta property="og:title" content="Writing — Yeonguk Kim" />
+  <meta property="og:description" content="Writing and thesis notes from Yeonguk Kim on Work OS design, AI state continuity, agent governance, and evidence-gated operations." />
+  <meta property="og:type" content="website" />
+  <title>Writing — Yeonguk Kim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+<nav class="nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a class="mark" href="/" aria-label="Yeonguk Kim home"><span class="mark-dot" aria-hidden="true"></span><span>Yeonguk Kim</span></a>
+    <div class="nav-links">
+      <a href="/projects/">Projects</a>
+      <a href="/writing/" aria-current="page">Writing</a>
+      <a href="/now/">Now</a>
+      <a href="/#contact" class="button ghost">Contact</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <section class="section page-hero"><div class="breadcrumb"><a href="/">Home</a><span>/</span><span>Writing</span></div><p class="section-kicker">Writing</p><h1>Notes for an agent-readable career surface.</h1><p class="lead">Draft-level public notes. This area is for work logs, thesis fragments, and evidence-linked writing that can later become LinkedIn posts or longer essays.</p></section>
+  <section class="section">
+    <div class="article-list">
+      <article class="article-row"><time>Working thesis</time><div><h3>AI value is state continuity, not chat completion.</h3><p>The useful layer is the operating system around work: durable state, evidence handles, access control, review gates, and compounding context.</p></div><span class="state">Draft</span></article>
+      <article class="article-row"><time>Work OS</time><div><h3>Services are unbundling from delivery into state-change systems.</h3><p>The unit of value is not a delivered document. It is whether the system changed state reliably and left handles that future agents or humans can use.</p></div><span class="state">Draft</span></article>
+      <article class="article-row"><time>Operator notes</time><div><h3>Every AI workflow needs a review gate story.</h3><p>Automation without a governance boundary becomes brittle. The interesting design problem is where judgment remains human and how evidence reaches that point.</p></div><span class="state">Draft</span></article>
+    </div>
+  </section>
+  <section class="section"><div class="contact"><p class="section-kicker">Publishing policy</p><h2>Message approval is not publish approval.</h2><p>Drafts here can become external messages only after explicit publish approval and public-copy review.</p></div></section>
+</main>
+<footer>
+  <span>© <span id="year"></span> Yeonguk Kim</span>
+  <span>AI-assisted workflow systems builder · Seoul/Korea-compatible remote</span>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

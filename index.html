@@ -3,438 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Yeonguk Kim — AI-assisted operations and workflow systems builder." />
+  <meta name="description" content="Yeonguk Kim — personal hub for portfolio cases, writing, and current work around AI-assisted operations and workflow systems." />
   <meta property="og:title" content="Yeonguk Kim — Workflow Systems Builder" />
-  <meta property="og:description" content="Turning messy organizational work into structured, traceable, reviewable operating loops." />
+  <meta property="og:description" content="Yeonguk Kim — personal hub for portfolio cases, writing, and current work around AI-assisted operations and workflow systems." />
   <meta property="og:type" content="website" />
   <title>Yeonguk Kim — Workflow Systems Builder</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ink: #171717;
-      --muted: #4d4d4d;
-      --subtle: #666;
-      --line: rgba(0,0,0,.08);
-      --soft: #fafafa;
-      --paper: #fff;
-      --blue: #0a72ef;
-      --pink: #de1d8d;
-      --red: #ff5b4f;
-      --badge-bg: #ebf5ff;
-      --badge-text: #0068d6;
-      --focus: hsla(212, 100%, 48%, 1);
-      --shadow-border: 0 0 0 1px var(--line);
-      --shadow-card: 0 0 0 1px rgba(0,0,0,.08), 0 2px 2px rgba(0,0,0,.04), 0 8px 8px -8px rgba(0,0,0,.04), 0 0 0 1px #fafafa inset;
-      color-scheme: light;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      font-feature-settings: "liga" 1;
-    }
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,.86);
-      backdrop-filter: blur(14px);
-      box-shadow: var(--shadow-border);
-    }
-    .nav-inner {
-      width: min(1120px, calc(100% - 32px));
-      min-height: 64px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .mark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      letter-spacing: -.32px;
-    }
-    .mark-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: conic-gradient(from 135deg, var(--blue), var(--pink), var(--red), var(--blue));
-      box-shadow: var(--shadow-border);
-    }
-    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 14px; font-weight: 500; }
-    .nav-links a:hover { color: var(--ink); }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-    }
-    .button:hover { transform: translateY(-1px); }
-    .button.primary { background: var(--ink); color: #fff; }
-    .button.ghost { background: #fff; color: var(--ink); box-shadow: 0 0 0 1px rgb(235,235,235); }
-
-    main { overflow: hidden; }
-    .section {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 88px 0;
-    }
-    .hero {
-      position: relative;
-      min-height: calc(100svh - 64px);
-      display: grid;
-      align-items: center;
-      padding: 86px 0 96px;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 6% 4% auto auto;
-      width: 520px;
-      height: 520px;
-      background: radial-gradient(circle at 30% 30%, rgba(10,114,239,.18), transparent 36%), radial-gradient(circle at 70% 55%, rgba(222,29,141,.12), transparent 34%), radial-gradient(circle at 45% 80%, rgba(255,91,79,.10), transparent 36%);
-      filter: blur(22px);
-      opacity: .86;
-      pointer-events: none;
-    }
-    .hero-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
-      gap: 48px;
-      align-items: center;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      width: fit-content;
-      padding: 6px 10px;
-      border-radius: 9999px;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: 12px;
-      font-weight: 500;
-      margin-bottom: 22px;
-      box-shadow: 0 0 0 1px rgba(0,104,214,.08) inset;
-    }
-    h1 {
-      margin: 0;
-      max-width: 780px;
-      font-size: clamp(46px, 7vw, 88px);
-      line-height: .95;
-      letter-spacing: clamp(-3.8px, -.06em, -2.4px);
-      font-weight: 600;
-      text-wrap: balance;
-    }
-    .lead {
-      max-width: 690px;
-      margin: 28px 0 0;
-      color: var(--muted);
-      font-size: clamp(18px, 2.1vw, 22px);
-      line-height: 1.65;
-      text-wrap: pretty;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-
-    .console-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: var(--shadow-card);
-      padding: 18px;
-    }
-    .console-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-    .traffic { display: flex; gap: 6px; }
-    .traffic span { width: 10px; height: 10px; border-radius: 50%; background: #ebebeb; }
-    .traffic span:nth-child(1) { background: #ff5b4f; }
-    .traffic span:nth-child(2) { background: #f5c84c; }
-    .traffic span:nth-child(3) { background: #3ecf8e; }
-    .mono { font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
-    .console-label { color: var(--subtle); font-size: 12px; font-weight: 500; }
-    .pipeline { display: grid; gap: 12px; }
-    .pipe-step {
-      padding: 16px;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: var(--shadow-border);
-    }
-    .pipe-step small { display: block; margin-bottom: 7px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
-    .pipe-step strong { display: block; font-size: 20px; letter-spacing: -.72px; }
-    .pipe-step p { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
-    .pipe-step:nth-child(1) small { color: var(--blue); }
-    .pipe-step:nth-child(2) small { color: var(--pink); }
-    .pipe-step:nth-child(3) small { color: var(--red); }
-
-    .section-kicker {
-      margin: 0 0 12px;
-      font-family: "Geist Mono", ui-monospace, monospace;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: var(--subtle);
-      letter-spacing: .05em;
-    }
-    h2 {
-      margin: 0;
-      max-width: 760px;
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1.04;
-      letter-spacing: -2.4px;
-      font-weight: 600;
-      text-wrap: balance;
-    }
-    .section-intro { max-width: 760px; margin: 18px 0 0; color: var(--muted); font-size: 18px; line-height: 1.7; }
-
-    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px; }
-    .case-card {
-      min-height: 318px;
-      display: flex;
-      flex-direction: column;
-      padding: 22px;
-      border-radius: 10px;
-      background: #fff;
-      box-shadow: var(--shadow-card);
-    }
-    .case-card.featured { grid-column: span 2; }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-    .tag { padding: 5px 9px; border-radius: 9999px; background: #fafafa; color: var(--muted); font-size: 12px; font-weight: 500; box-shadow: var(--shadow-border); }
-    .case-card h3 { margin: 0; font-size: 25px; line-height: 1.16; letter-spacing: -.96px; font-weight: 600; }
-    .case-card p { margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 1.62; }
-    .case-footer { margin-top: auto; padding-top: 20px; color: var(--subtle); font-size: 13px; line-height: 1.45; }
-
-    .model {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 36px;
-    }
-    .model-card {
-      padding: 26px;
-      border-radius: 10px;
-      background: #fff;
-      box-shadow: var(--shadow-card);
-    }
-    .model-card h3 { margin: 0 0 16px; font-size: 24px; line-height: 1.24; letter-spacing: -.96px; }
-    .model-card ol, .model-card ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.72; }
-    .model-card li + li { margin-top: 8px; }
-
-    .proof-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      margin-top: 36px;
-      background: #ebebeb;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow-border);
-    }
-    .proof-item { background: #fff; padding: 22px; }
-    .proof-item strong { display: block; font-size: 22px; letter-spacing: -.8px; margin-bottom: 8px; }
-    .proof-item span { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; }
-
-    .contact {
-      text-align: center;
-      border-radius: 14px;
-      padding: 58px 28px;
-      box-shadow: var(--shadow-card);
-      background: linear-gradient(180deg, #fff, #fafafa);
-    }
-    .contact h2 { margin-inline: auto; }
-    .contact p { max-width: 680px; margin: 18px auto 0; color: var(--muted); font-size: 18px; line-height: 1.65; }
-    .contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-
-    footer {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 28px 0 48px;
-      color: var(--subtle);
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      border-top: 1px solid #ebebeb;
-    }
-
-    @media (max-width: 900px) {
-      .nav-links a:not(.button) { display: none; }
-      .hero-grid, .model { grid-template-columns: 1fr; }
-      .console-card { max-width: 620px; }
-      .case-grid { grid-template-columns: 1fr; }
-      .case-card.featured { grid-column: auto; }
-      .proof-strip { grid-template-columns: repeat(2, 1fr); }
-      .section { padding: 64px 0; }
-      .hero { min-height: auto; padding-top: 64px; }
-    }
-    @media (max-width: 560px) {
-      .nav-inner { width: min(100% - 24px, 1120px); }
-      .nav-links .ghost { display: none; }
-      .section { width: min(100% - 24px, 1120px); }
-      h1 { font-size: 44px; letter-spacing: -2.4px; }
-      h2 { letter-spacing: -1.6px; }
-      .proof-strip { grid-template-columns: 1fr; }
-      footer { width: min(100% - 24px, 1120px); flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
-  <nav class="nav" aria-label="Primary navigation">
-    <div class="nav-inner">
-      <a class="mark" href="#top" aria-label="Yeonguk Kim home"><span class="mark-dot" aria-hidden="true"></span><span>Yeonguk Kim</span></a>
-      <div class="nav-links">
-        <a href="#cases">Cases</a>
-        <a href="#model">Model</a>
-        <a href="#contact" class="button ghost">Contact</a>
-      </div>
+<nav class="nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a class="mark" href="/" aria-label="Yeonguk Kim home"><span class="mark-dot" aria-hidden="true"></span><span>Yeonguk Kim</span></a>
+    <div class="nav-links">
+      <a href="/projects/">Projects</a>
+      <a href="/writing/">Writing</a>
+      <a href="/now/">Now</a>
+      <a href="/#contact" class="button ghost">Contact</a>
     </div>
-  </nav>
-
-  <main id="top">
-    <section class="section hero">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">AI-assisted operations · Work OS · Review gates</div>
-          <h1>Turning messy work into traceable operating loops.</h1>
-          <p class="lead">I design workflow systems around ambiguous organizational work: extracting the hidden entities, defining lifecycle rules, preserving context, and keeping human review where judgment matters.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#cases">View evidence cases</a>
-            <a class="button ghost" href="#model">Read operating model</a>
-          </div>
-        </div>
-        <aside class="console-card" aria-label="Operating loop summary">
-          <div class="console-top">
-            <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span class="console-label mono">operator-loop.md</span>
-          </div>
-          <div class="pipeline">
-            <div class="pipe-step">
-              <small class="mono">Extract</small>
-              <strong>Find the entities</strong>
-              <p>Issues, evidence, schedules, contacts, requirements, lifecycle states.</p>
-            </div>
-            <div class="pipe-step">
-              <small class="mono">Govern</small>
-              <strong>Make the process reviewable</strong>
-              <p>Source traces, fixed formats, PR gates, human calibration loops.</p>
-            </div>
-            <div class="pipe-step">
-              <small class="mono">Compound</small>
-              <strong>Preserve context</strong>
-              <p>Reusable knowledge entities instead of one-off script outputs.</p>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="cases">
-      <p class="section-kicker">Evidence cases</p>
-      <h2>Not “used AI.” Built operating systems around work.</h2>
-      <p class="section-intro">Public-safe case summaries from internal working notes. Quantified claims are intentionally conservative unless evidence has been reconstructed.</p>
-      <div class="case-grid">
-        <article class="case-card featured">
-          <div class="tag-row"><span class="tag">Requirements</span><span class="tag">Issue lifecycle</span><span class="tag">Client ↔ Dev interface</span></div>
-          <h3>Department-first AI-assisted requirements and issue lifecycle framework</h3>
-          <p>Built a standardized lifecycle framework for a poorly defined client project, turning chaotic requirement changes and development issues into source-traceable records, lifecycle views, and PDF reports for the development team.</p>
-          <p>Result: repetitive reporting work decreased, and handling mistakes became rare.</p>
-          <div class="case-footer">Signals: requirements stabilization, change-request control, AI-assisted project operations.</div>
-        </article>
-        <article class="case-card">
-          <div class="tag-row"><span class="tag">Evidence</span><span class="tag">Admin ops</span></div>
-          <h3>Expense submission evidence workflow</h3>
-          <p>Built a personal workflow that processes receipt and app screenshots, determines required evidence mappings, and outputs company-format submission material.</p>
-          <div class="case-footer">Signal: reducing recurring cognitive load by turning rules into a repeatable evidence pipeline.</div>
-        </article>
-        <article class="case-card featured">
-          <div class="tag-row"><span class="tag">Work OS</span><span class="tag">Agent governance</span><span class="tag">Knowledge ops</span></div>
-          <h3>PR-gated agentic knowledge management system</h3>
-          <p>Building a context-preserving work OS where a Drive sweeper proposes wiki updates, a librarian agent checks obsolete or conflicting information, and human review calibrates quality before delegation expands.</p>
-          <div class="case-footer">Signals: context architecture, knowledge entity modeling, human-in-the-loop agent governance.</div>
-        </article>
-        <article class="case-card">
-          <div class="tag-row"><span class="tag">Reporting</span><span class="tag">Unstructured evidence</span></div>
-          <h3>Business trip result report generation</h3>
-          <p>Designed a workflow around meeting records, memos, and photos to draft business-trip result reports for later human editing.</p>
-          <div class="case-footer">Signal: synthesizing scattered real-world evidence into reusable reporting context.</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="model">
-      <p class="section-kicker">Operating model</p>
-      <h2>The repeatable pattern behind the cases.</h2>
-      <p class="section-intro">The core skill is not tool enthusiasm. It is deciding what should become a stable entity, what lifecycle it follows, and where AI can safely act.</p>
-      <div class="model">
-        <div class="model-card">
-          <h3>How I structure ambiguous work</h3>
-          <ol>
-            <li>Observe where reality is messy: changing requirements, scattered receipts, volatile context.</li>
-            <li>Identify the hidden objects and rules inside the mess.</li>
-            <li>Define a system boundary: records, states, source traces, output formats.</li>
-            <li>Insert AI as an operating component, not as a magic chatbot.</li>
-            <li>Keep review gates where judgment and quality control matter.</li>
-          </ol>
-        </div>
-        <div class="model-card">
-          <h3>Where this creates value</h3>
-          <ul>
-            <li>Requirements and change-request lifecycle design.</li>
-            <li>Evidence packaging for admin/reporting workflows.</li>
-            <li>Context-preserving knowledge operations.</li>
-            <li>Agent-facing governance loops with human calibration.</li>
-            <li>Product/program-side coordination architecture.</li>
-          </ul>
+  </div>
+</nav>
+<main id="top">
+  <section class="section hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Personal hub · Portfolio · Work OS notes</div>
+        <h1>Turning messy work into traceable operating loops.</h1>
+        <p class="lead">This is my public home base: portfolio cases, working thesis, and current experiments around AI-assisted operations, Work OS design, evidence handles, and review-gated agent workflows.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="/projects/">View projects</a>
+          <a class="button ghost" href="/writing/">Read notes</a>
+          <a class="button ghost" href="/now/">Current focus</a>
         </div>
       </div>
-      <div class="proof-strip" aria-label="Positioning signals">
-        <div class="proof-item"><strong>Traceable</strong><span>Source-linked records instead of vague summaries.</span></div>
-        <div class="proof-item"><strong>Reviewable</strong><span>Human judgment remains explicit at gates.</span></div>
-        <div class="proof-item"><strong>Reusable</strong><span>Knowledge entities outlive a single automation run.</span></div>
-        <div class="proof-item"><strong>Operational</strong><span>Built for actual handoff, reporting, and execution.</span></div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="contact">
-        <p class="section-kicker">Contact</p>
-        <h2>Useful conversations start with a messy workflow.</h2>
-        <p>If you have ambiguous requirements, repetitive reporting, scattered operational evidence, or an AI workflow that needs governance, I can help turn it into a structured loop.</p>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:hello@yeongukkim.com">hello@yeongukkim.com</a>
-          <a class="button ghost" href="https://yeongukkim.com" rel="me">yeongukkim.com</a>
+      <aside class="console-card" aria-label="Site map summary">
+        <div class="console-top"><div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div><span class="console-label mono">yeongukkim.com</span></div>
+        <div class="pipeline">
+          <a class="pipe-step" href="/projects/"><small class="mono">Projects</small><strong>Evidence cases</strong><p>Public-safe work samples and operating-system patterns.</p></a>
+          <a class="pipe-step" href="/writing/"><small class="mono">Writing</small><strong>Thesis and notes</strong><p>State continuity, Work OS, agent governance, and public work logs.</p></a>
+          <a class="pipe-step" href="/now/"><small class="mono">Now</small><strong>Current direction</strong><p>What I am building, learning, and open to discussing.</p></a>
         </div>
-      </div>
-    </section>
-  </main>
+      </aside>
+    </div>
+  </section>
 
-  <footer>
-    <span>© <span id="year"></span> Yeonguk Kim</span>
-    <span>AI-assisted workflow systems builder · Seoul/Korea-compatible remote</span>
-  </footer>
+  <section class="section">
+    <p class="section-kicker">Portfolio spine</p>
+    <h2>Not “used AI.” Built operating systems around work.</h2>
+    <p class="section-intro">The cases repeatedly show one pattern: ambiguous work becomes explicit entities, lifecycle states, source traces, output formats, and review gates.</p>
+    <div class="grid two">
+      <article class="card featured"><div class="tag-row"><span class="tag">Requirements</span><span class="tag">Issue lifecycle</span><span class="tag">Client ↔ Dev interface</span></div><h3>AI-assisted requirements and issue lifecycle framework</h3><p>Turned chaotic requirement changes and development issues into source-traceable issue records, lifecycle views, and PDF reports for the development team.</p><div class="card-footer">Strongest professional case · <a href="/projects/">read project summary →</a></div></article>
+      <article class="card"><div class="tag-row"><span class="tag">Admin ops</span><span class="tag">Evidence</span></div><h3>Expense evidence workflow</h3><p>Processed raw receipt/app screenshots into company-format submission outputs with required evidence mappings.</p><div class="card-footer"><a href="/projects/">View all cases →</a></div></article>
+      <article class="card"><div class="tag-row"><span class="tag">Work OS</span><span class="tag">Agent governance</span></div><h3>PR-gated knowledge operations</h3><p>Designing a context-preserving Work OS with sweeper/librarian agents and human review calibration.</p><div class="card-footer"><a href="/projects/">View all cases →</a></div></article>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <section class="section">
+    <p class="section-kicker">Site areas</p>
+    <h2>Use the domain as a home, not a single-purpose brochure.</h2>
+    <div class="grid three">
+      <a class="card" href="/projects/"><h3>Projects</h3><p>Portfolio evidence, case summaries, and reusable patterns from real work.</p><div class="card-footer">/projects</div></a>
+      <a class="card" href="/writing/"><h3>Writing</h3><p>Public work-log notes and thesis fragments. Built to become an agent-readable career surface.</p><div class="card-footer">/writing</div></a>
+      <a class="card" href="/now/"><h3>Now</h3><p>Current focus, availability posture, and what conversations are useful right now.</p><div class="card-footer">/now</div></a>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="contact">
+      <p class="section-kicker">Contact</p>
+      <h2>Useful conversations start with a messy workflow.</h2>
+      <p>If you have ambiguous requirements, repetitive reporting, scattered operational evidence, or an AI workflow that needs governance, I can help turn it into a structured loop.</p>
+      <div class="contact-actions"><a class="button primary" href="mailto:hello@yeongukkim.com">hello@yeongukkim.com</a><a class="button ghost" href="https://github.com/Letgodot" rel="me">GitHub</a></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <span>© <span id="year"></span> Yeonguk Kim</span>
+  <span>AI-assisted workflow systems builder · Seoul/Korea-compatible remote</span>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

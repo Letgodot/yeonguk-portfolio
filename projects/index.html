@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio cases from Yeonguk Kim: AI-assisted operations, workflow systems, requirements lifecycle, evidence workflows, and agentic knowledge operations." />
+  <meta property="og:title" content="Projects — Yeonguk Kim" />
+  <meta property="og:description" content="Portfolio cases from Yeonguk Kim: AI-assisted operations, workflow systems, requirements lifecycle, evidence workflows, and agentic knowledge operations." />
+  <meta property="og:type" content="website" />
+  <title>Projects — Yeonguk Kim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+<nav class="nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a class="mark" href="/" aria-label="Yeonguk Kim home"><span class="mark-dot" aria-hidden="true"></span><span>Yeonguk Kim</span></a>
+    <div class="nav-links">
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="/writing/">Writing</a>
+      <a href="/now/">Now</a>
+      <a href="/#contact" class="button ghost">Contact</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <section class="section page-hero">
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><span>Projects</span></div>
+    <p class="section-kicker">Projects</p>
+    <h1>Evidence cases for workflow systems.</h1>
+    <p class="lead">Public-safe summaries. Claims are intentionally conservative unless evidence has been reconstructed.</p>
+  </section>
+  <section class="section">
+    <div class="grid two">
+      <article class="card featured"><div class="tag-row"><span class="tag">Requirements</span><span class="tag">Issue lifecycle</span><span class="tag">ODA / BA work</span></div><h3>Department-first AI-assisted requirements and issue lifecycle framework</h3><p>Built a standardized lifecycle framework for a poorly defined client project, converting requirement changes and development issues into source-traceable records, lifecycle views, and PDF reports for the development team.</p><p>Result: repetitive reporting work decreased, and handling mistakes became rare.</p><div class="card-footer">Signals: requirements stabilization, change-request control, client-dev communication interface design, AI-assisted project operations.</div></article>
+      <article class="card"><div class="tag-row"><span class="tag">Admin ops</span><span class="tag">Evidence packaging</span></div><h3>Personal expense submission evidence workflow</h3><p>Built a workflow that accepts receipt and app screenshots, determines evidence mappings based on transaction descriptions, and generates company-format submission outputs.</p><div class="card-footer">Signal: recurring admin work becomes a repeatable evidence pipeline.</div></article>
+      <article class="card"><div class="tag-row"><span class="tag">Work OS</span><span class="tag">Agent governance</span><span class="tag">Knowledge ops</span></div><h3>PR-gated agentic knowledge management system</h3><p>Building a context-preserving Work OS where a Drive sweeper proposes wiki updates, a librarian agent checks obsolete/conflicting information, and human review calibrates quality before delegation expands.</p><div class="card-footer">Signals: context architecture, knowledge entity modeling, human-in-the-loop calibration, PR-gated quality control.</div></article>
+      <article class="card"><div class="tag-row"><span class="tag">Reporting</span><span class="tag">Unstructured evidence</span></div><h3>Business trip result report generation</h3><p>Designed a workflow around meeting records, memos, and photos to draft business-trip result reports for later human editing.</p><div class="card-footer">Signal: scattered real-world evidence becomes reusable reporting context.</div></article>
+    </div>
+  </section>
+  <section class="section">
+    <p class="section-kicker">Pattern</p><h2>The repeatable move.</h2>
+    <div class="grid two"><div class="list-card"><h3>How I structure ambiguous work</h3><ol><li>Observe where reality is messy.</li><li>Identify hidden objects and rules.</li><li>Define records, states, source traces, and outputs.</li><li>Insert AI as an operating component.</li><li>Keep review gates where judgment matters.</li></ol></div><div class="list-card"><h3>Where this is useful</h3><ul><li>Requirements and change-request lifecycle design.</li><li>Evidence packaging and reporting workflows.</li><li>Context-preserving knowledge operations.</li><li>Agent-facing governance loops.</li><li>Product/program-side coordination architecture.</li></ul></div></div>
+  </section>
+</main>
+<footer>
+  <span>© <span id="year"></span> Yeonguk Kim</span>
+  <span>AI-assisted workflow systems builder · Seoul/Korea-compatible remote</span>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
